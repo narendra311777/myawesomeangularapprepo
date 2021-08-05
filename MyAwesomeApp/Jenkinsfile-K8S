@@ -3,8 +3,9 @@ node {
     def mvnHome = tool 'm2'
     
     stage ('Checkout') {    
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'e2f1b466-b418-42ac-84a8-b6d6a5857928', url: 'https://github.com/narendra311777/myawesomeangularapprepo']]])   
-    
+       //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'e2f1b466-b418-42ac-84a8-b6d6a5857928', url: 'https://github.com/narendra311777/myawesomeangularapprepo']]])   
+        //stage('scm checkout'){
+        git 'https://github.com/narendra311777/mycode.git'
     }
     
     stage ('build')  {
