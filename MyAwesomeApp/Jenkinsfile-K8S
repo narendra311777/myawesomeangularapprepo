@@ -8,9 +8,13 @@ node {
         git 'https://github.com/narendra311777/mycode.git'
     }
     
-    stage ('build')  {
-        sh "${mvnHome}/bin/mvn package -f MyAwesomeApp/pom.xml"
-    } 
+    stage('package'){
+                def mvnHome = tool name: 'm2' , type: 'maven'
+                sh "${mvnHome}/bin/mvn package"
+    
+    //stage ('build')  {
+      //  sh "${mvnHome}/bin/mvn package -f MyAwesomeApp/pom.xml"
+   // } 
     
     stage ('Docker Build') {
      // Build and push image with Jenkins' docker-plugin
